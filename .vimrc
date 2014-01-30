@@ -27,3 +27,6 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
+" Scroll before the very beginning/end of the screen.
+set scrolloff=8
+
