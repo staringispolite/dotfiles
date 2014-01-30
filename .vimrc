@@ -88,3 +88,7 @@ set shiftwidth=2
 " No shift anymore in command mode. Few keystrokes! :w bcomes ;w
 nnoremap ; :
 
+" Steve Losh's fix for when you forget to sudo before editing.
+" w!! will let you write it anyway.
+" http://forrst.com/posts/Use_w_to_sudo_write_a_file_with_Vim-uAN
+cmap w!! w !sudo tee % >/dev/null
