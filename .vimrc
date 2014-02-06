@@ -1,4 +1,4 @@
-""""" PREREQS
+""""" PREREQS AND MAIN FUNCTIONALITY
 " This must be first, because it changes other options as side effect
 set nocompatible
 
@@ -9,12 +9,12 @@ set timeout ttimeoutlen=100 timeoutlen=5000
 " :q hides a buffer, not closes it. Maintains history, etc.
 set hidden
 
-" Change buffer title
-set title
-
-" Turn of beeps
+" Turn off beeps
 set visualbell
 set noerrorbells
+
+" No shift anymore in command mode. Few keystrokes! :w bcomes ;w
+nnoremap ; :
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -23,9 +23,31 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 " Ignore certain files you don't want to edit
 set wildignore=*.swp,*.bak,*.pyc,*.class
 
-" History
+" Less lag in screen updates
+set ttyfast
+
+
+""""" History
+" Expand how far back to track undos
 set history=1000
 set undolevels=1000
+
+" Persistent undo 
+set undofile
+set undodir=~/.vim/undo
+set undoreload=10000  " number of lines to save for undo
+
+
+""""" VISUAL
+" Show line numbers
+set number
+set showmatch
+
+" Change buffer title
+set title
+
+" Show line, column numbers at the bottom
+set ruler
 
 
 """"" TAB BEHAVIOR
@@ -43,7 +65,7 @@ set whichwrap+=<,>,h,l,[,]
 " Scroll before the very beginning/end of the screen.
 set scrolloff=8
 
-" One of these days I'll turn arrows off.
+" One of these days I'll be cool enough to turn arrows off.
 " map <up> <nop>
 " map <down> <nop>
 " map <left> <nop>
@@ -66,28 +88,38 @@ set incsearch
 " Clear search highlighting with esc
 nnoremap // :noh<return><esc>
 
-" Show line numbers
-set number
-set showmatch
+" Creates a quickfix list of all instances of word under the cursor 
+nnoremap fj :execute "noautocmd vimgrep /" . expand("<cword>") . "/j **" <Bar> cnext<CR>
 
 
 """"" INDENTATION
 " Smart indentation
 set smartindent
 set smarttab
-set copyindent
 
 " Tab is 2 spaces
 set tabstop=2
 set shiftwidth=2
 set expandtab
-set shiftwidth=2
+
+
+""""" SYNTAX HIGHLIGHTING
+syntax on
+filetype on
+
+" Expand the types that get CSS highlighting
+au BufNewFile,BufRead *.less set filetype=css
+au BufNewFile,BufRead *.sass set filetype=css
+
+" Expand types that get SQL highlighting
+au BufNewFile,BufRead *.dump set filetype=sql
+
+
+" Underline the current line
+set cursorline
 
 
 """"" EXPERIMENTING WITH STILL
-" No shift anymore in command mode. Few keystrokes! :w bcomes ;w
-nnoremap ; :
-
 " Steve Losh's fix for when you forget to sudo before editing.
 " w!! will let you write it anyway.
 " http://forrst.com/posts/Use_w_to_sudo_write_a_file_with_Vim-uAN
