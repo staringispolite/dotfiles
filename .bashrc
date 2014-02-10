@@ -26,3 +26,6 @@ alias em='cd ~/Code/scorponok; ls'
 alias ema='cd ~/Code/emissary-api; ls'
 alias emi='cd ~/Code/emissary-ios; ls'
 alias dots='cd ~/Code/dotfiles; ls -al'
+
+## Lolz
+alias fucking=sudo
