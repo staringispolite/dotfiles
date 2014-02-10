@@ -119,6 +119,13 @@ au BufNewFile,BufRead *.dump set filetype=sql
 set cursorline
 
 
+""""" FOLDING
+augroup vimrc
+  au BufReadPre * setlocal foldmethod=indent
+  au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
+augroup END
+
+
 """"" EXPERIMENTING WITH STILL
 " Steve Losh's fix for when you forget to sudo before editing.
 " w!! will let you write it anyway.
