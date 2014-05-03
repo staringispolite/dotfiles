@@ -17,6 +17,7 @@ alias wow="git status"
 alias very=git
 alias such=git
 alias much=git
+alias so=git
 
 ## Coding convenience
 alias la='ls -al'
