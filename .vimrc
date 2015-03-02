@@ -1,7 +1,52 @@
-""""" PREREQS AND MAIN FUNCTIONALITY
-" This must be first, because it changes other options as side effect
-set nocompatible
+""""" BEGIN VUNDLE """""
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Ag.vim (Ack.vim for Ag/Silver Searcher support)
+Plugin 'rking/ag.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+Plugin 'L9'
+" Git plugin not hosted on GitHub
+Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+"Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Avoid a name conflict with L9
+"Plugin 'user/L9', {'name': 'newL9'}
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList          - list configured plugins
+" :PluginInstall(!)    - install (update) plugins
+" :PluginSearch(!) foo - search (or refresh cache first) for foo
+" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+""""" PREREQS AND MAIN FUNCTIONALITY
 " Fix problem where arrow keys inserted new lines with A,B,D
 set term=builtin_ansi
 set timeout ttimeoutlen=100 timeoutlen=5000
@@ -13,8 +58,11 @@ set hidden
 set visualbell
 set noerrorbells
 
-" No shift anymore in command mode. Few keystrokes! :w bcomes ;w
+" No shift anymore in command mode. Fewer keystrokes! :w bcomes ;w
 nnoremap ; :
+
+" No shift anymore to use ag search. Fewer keystrokes!
+nnoremap :Ag :ag
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -90,7 +138,6 @@ nnoremap // :noh<return><esc>
 
 " Creates a quickfix list of all instances of word under the cursor 
 nnoremap fj :execute "noautocmd vimgrep /" . expand("<cword>") . "/j **" <Bar> cnext<CR>
-
 
 """"" INDENTATION
 " Smart indentation
