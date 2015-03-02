@@ -1,4 +1,5 @@
 alias realias='source ~/.bashrc'
+export EDITOR=vim
 
 ## virtualenv
 export WORKON_HOME=$HOME/.virtualenvs
@@ -22,11 +23,16 @@ alias so=git
 ## Coding convenience
 alias la='ls -al'
 alias realias='source ~/.bashrc'
+alias code='cd ~/Code; ls'
+alias bingo='cd ~/Code/airportbingo; ls'
 alias gd='cd ~/Code/golddigger; ls'
 alias em='cd ~/Code/scorponok; ls'
 alias ema='cd ~/Code/emissary-api; ls'
 alias emi='cd ~/Code/emissary-ios; ls'
 alias dots='cd ~/Code/dotfiles; ls -al'
+alias music='cd ~/Dropbox/Music\ \(1\)/JonH/; ls'
+alias cochlea='cd ~/Code/cochlea; ls -al'
+alias ganglion='cd ~/Code/ganglion; ls -al'
 
 ## Lolz
 alias fucking=sudo
