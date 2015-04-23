@@ -1,3 +1,4 @@
+## Note: this doesn't work if you symlink to the dotfiles repo
 alias realias='source ~/.bashrc'
 
 ## virtualenv
@@ -21,10 +22,10 @@ alias music='cd ~/Dropbox/Music\ \(1\); ls'
 alias la='ls -al'
 alias realias='source ~/.bashrc'
 alias gd='cd ~/Code/golddigger; ls'
-alias em='cd ~/Code/scorponok; ls'
-alias ema='cd ~/Code/emissary-api; ls'
-alias emi='cd ~/Code/emissary-ios; ls'
-alias dots='cd ~/Code/dotfiles; ls -al'
+alias em='cd ~/Code/emissary; ls'
+alias ema='cd ~/Code/emissary/emissary-api; ls'
+alias emi='cd ~/Code/emissary/emissary-ios; ls'
+alias dots='cd ~/Code/personal/dotfiles; ls -al'
 
 ## Shell changes
 function cd () {
