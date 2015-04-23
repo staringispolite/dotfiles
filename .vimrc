@@ -2,6 +2,58 @@
 " This must be first, because it changes other options as side effect
 set nocompatible
 
+""""" BEGIN VUNDLE SECTION
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+
+" The Silver Searcher in Vim
+"https://github.com/rking/ag.vim
+Plugin 'rking/ag.vim'
+
+" Ack in vim
+" https://github.com/mileszs/ack.vim
+Plugin 'mileszs/ack.vim'
+
+" CTRLP on @mrmrs' recc
+" https://github.com/kien/ctrlp.vim
+Plugin 'kien/ctrlp.vim'
+
+" GUndo - visualize undo history branches
+" https://github.com/sjl/gundo.vim
+Plugin 'sjl/gundo.vim'
+
+" Solarized color scheme
+" https://github.com/altercation/vim-colors-solarized
+Plugin 'altercation/vim-colors-solarized'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+""""" END VUNDLE SECTION
+
 " Fix problem where arrow keys inserted new lines with A,B,D
 set term=builtin_ansi
 set timeout ttimeoutlen=100 timeoutlen=5000
@@ -13,8 +65,19 @@ set hidden
 set visualbell
 set noerrorbells
 
-" No shift anymore in command mode. Few keystrokes! :w bcomes ;w
+" No shift anymore in command mode. Fewer keystrokes! :w bcomes ;w
 nnoremap ; :
+
+" Better split controls
+" https://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
+" Navigate with <C-*> instead of <C-W> *
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+" Change where new splits open. More natural than vim's defaults.
+set splitbelow
+set splitright
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -54,8 +117,13 @@ set ruler
 " Command+t to open new tab
 nnoremap <C-t> :tabnew 
 " < and > for prevtab and nexttab
-nnoremap < gT
-nnoremap > gt
+"nnoremap < gT
+"nnoremap > gt
+
+" Google-Chrome-style tab switching
+" with Command+Option+Arrow
+nnoremap <ESC>[1;9D gT
+nnoremap <ESC>[1;9C gt
 
 
 """"" MOVEMENT
@@ -104,7 +172,9 @@ set expandtab
 
 
 """"" SYNTAX HIGHLIGHTING
-syntax on
+syntax enable
+set background=dark
+colorscheme solarized
 filetype on
 
 " Expand the types that get CSS highlighting
