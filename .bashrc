@@ -1,4 +1,3 @@
-## Note: this doesn't work if you symlink to the dotfiles repo
 alias realias='source ~/.bashrc'
 
 ## virtualenv
@@ -23,6 +22,7 @@ alias la='ls -al'
 alias realias='source ~/.bashrc'
 alias gd='cd ~/Code/golddigger; ls'
 alias em='cd ~/Code/emissary; ls'
+alias ems='cd ~/Code/emissary/scorponok; ls'
 alias ema='cd ~/Code/emissary/emissary-api; ls'
 alias emi='cd ~/Code/emissary/emissary-ios; ls'
 alias dots='cd ~/Code/personal/dotfiles; ls -al'
