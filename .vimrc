@@ -79,7 +79,8 @@ nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
 
-" Quickly edit/reload the vimrc file
+" Quickly edit/reload the vimrc file.
+" (<leader> key in vim is \ by default).
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
