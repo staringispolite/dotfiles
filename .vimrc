@@ -1,4 +1,4 @@
-""""" BEGIN VUNDLE """""
+""""" BEGIN VUNDLE SECTION
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -11,42 +11,52 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-" Ag.vim (Ack.vim for Ag/Silver Searcher support)
-Plugin 'rking/ag.vim'
-
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
+
+" git comments inside vim
+" https://github.com/tpope/vim-fugitive
 Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-Plugin 'L9'
-" Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-"Plugin 'user/L9', {'name': 'newL9'}
+
+" The Silver Searcher in Vim
+"https://github.com/rking/ag.vim
+Plugin 'rking/ag.vim'
+
+" Ack in vim
+" https://github.com/mileszs/ack.vim
+Plugin 'mileszs/ack.vim'
+
+" CTRLP on @mrmrs' recc
+" https://github.com/kien/ctrlp.vim
+Plugin 'kien/ctrlp.vim'
+
+" GUndo - visualize undo history branches
+" https://github.com/sjl/gundo.vim
+Plugin 'sjl/gundo.vim'
+
+" Solarized color scheme
+" https://github.com/altercation/vim-colors-solarized
+Plugin 'altercation/vim-colors-solarized'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
 " Brief help
-" :PluginList          - list configured plugins
-" :PluginInstall(!)    - install (update) plugins
-" :PluginSearch(!) foo - search (or refresh cache first) for foo
-" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+""""" END VUNDLE SECTION
 
 """"" PREREQS AND MAIN FUNCTIONALITY
+
 " Fix problem where arrow keys inserted new lines with A,B,D
 set term=builtin_ansi
 set timeout ttimeoutlen=100 timeoutlen=5000
@@ -64,7 +74,20 @@ nnoremap ; :
 " No shift anymore to use ag search. Fewer keystrokes!
 nnoremap :Ag :ag
 
-" Quickly edit/reload the vimrc file
+" Better split controls
+" https://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
+" Navigate with <C-*> instead of <C-W> *
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Change where new splits open. More natural than vim's defaults.
+set splitbelow
+set splitright
+
+" Quickly edit/reload the vimrc file.
+" (<leader> key in vim is \ by default).
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
@@ -102,8 +125,13 @@ set ruler
 " Command+t to open new tab
 nnoremap <C-t> :tabnew 
 " < and > for prevtab and nexttab
-nnoremap < gT
-nnoremap > gt
+"nnoremap < gT
+"nnoremap > gt
+
+" Google-Chrome-style tab switching
+" with Command+Option+Arrow
+nnoremap <ESC>[1;9D gT
+nnoremap <ESC>[1;9C gt
 
 
 """"" MOVEMENT
@@ -151,7 +179,9 @@ set expandtab
 
 
 """"" SYNTAX HIGHLIGHTING
-syntax on
+syntax enable
+set background=dark
+colorscheme solarized
 filetype on
 
 " Expand the types that get CSS highlighting
