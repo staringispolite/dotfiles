@@ -120,6 +120,11 @@ set title
 " Show line, column numbers at the bottom
 set ruler
 
+" get rid of characters in window separators
+set fillchars=""
+
+" Always put a status line in, even if there is only one window
+set laststatus=2
 
 """"" TAB BEHAVIOR
 " Command+t to open new tab
@@ -141,6 +146,17 @@ set whichwrap+=<,>,h,l,[,]
 " Scroll before the very beginning/end of the screen.
 set scrolloff=8
 
+" Movement keys work on screen lines, not file lines
+nmap j gj
+nmap k gk
+vmap j gj
+vmap k gk
+nmap <Down> gj
+nmap <Up> gk
+vmap <Down> gj
+vmap <Up> gk
+
+"
 " One of these days I'll be cool enough to turn arrows off.
 " map <up> <nop>
 " map <down> <nop>
