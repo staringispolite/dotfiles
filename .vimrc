@@ -1,8 +1,5 @@
-""""" PREREQS AND MAIN FUNCTIONALITY
-" This must be first, because it changes other options as side effect
-set nocompatible
-
 """"" BEGIN VUNDLE SECTION
+set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -17,6 +14,10 @@ Plugin 'gmarik/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
+
+" git comments inside vim
+" https://github.com/tpope/vim-fugitive
+Plugin 'tpope/vim-fugitive'
 
 " The Silver Searcher in Vim
 "https://github.com/rking/ag.vim
@@ -58,6 +59,8 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 """"" END VUNDLE SECTION
 
+""""" PREREQS AND MAIN FUNCTIONALITY
+
 " Fix problem where arrow keys inserted new lines with A,B,D
 set term=builtin_ansi
 set timeout ttimeoutlen=100 timeoutlen=5000
@@ -75,6 +78,9 @@ map q: :q
 " No shift anymore in command mode. Fewer keystrokes! :w bcomes ;w
 nnoremap ; :
 
+" No shift anymore to use ag search. Fewer keystrokes!
+nnoremap :Ag :ag
+
 " Better split controls
 " https://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
 " Navigate with <C-*> instead of <C-W> *
@@ -82,6 +88,7 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
 " Change where new splits open. More natural than vim's defaults.
 set splitbelow
 set splitright
@@ -123,6 +130,11 @@ set ruler
 " Show details on the current command on last line
 set showcmd
 
+" get rid of characters in window separators
+set fillchars=""
+
+" Always put a status line in, even if there is only one window
+set laststatus=2
 
 """"" TAB BEHAVIOR
 " Command+t to open new tab
@@ -144,6 +156,17 @@ set whichwrap+=<,>,h,l,[,]
 " Scroll before the very beginning/end of the screen.
 set scrolloff=8
 
+" Movement keys work on screen lines, not file lines
+nmap j gj
+nmap k gk
+vmap j gj
+vmap k gk
+nmap <Down> gj
+nmap <Up> gk
+vmap <Down> gj
+vmap <Up> gk
+
+"
 " One of these days I'll be cool enough to turn arrows off.
 " map <up> <nop>
 " map <down> <nop>
@@ -169,7 +192,6 @@ nnoremap // :noh<return><esc>
 
 " Creates a quickfix list of all instances of word under the cursor 
 nnoremap fj :execute "noautocmd vimgrep /" . expand("<cword>") . "/j **" <Bar> cnext<CR>
-
 
 """"" INDENTATION
 " Smart indentation

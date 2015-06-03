@@ -1,4 +1,5 @@
 alias realias='source ~/.bashrc'
+export EDITOR=vim
 
 ## virtualenv
 export WORKON_HOME=$HOME/.virtualenvs
@@ -15,12 +16,16 @@ alias gs="git status"
 ## Music/mixing
 alias xf='cd ~/Dropbox/CROSSFIRE; ls'
 alias xfv='cd ~/Dropbox/CROSSFIRE/Video; ls'
-alias music='cd ~/Dropbox/Music\ \(1\); ls'
+alias music='cd ~/Dropbox/Music\ \(1\)/JonH/; ls'
 
 ## Coding convenience
 alias la='ls -al'
 alias realias='source ~/.bashrc'
+alias code='cd ~/Code; ls'
+alias bingo='cd ~/Code/airportbingo; ls'
 alias gd='cd ~/Code/golddigger; ls'
+alias cochlea='cd ~/Code/cochlea; ls -al'
+alias ganglion='cd ~/Code/ganglion; ls -al'
 alias em='cd ~/Code/emissary; ls'
 alias ems='cd ~/Code/emissary/scorponok; ls'
 alias ema='cd ~/Code/emissary/emissary-api; ls'
@@ -68,4 +73,4 @@ alias wow="git status"
 alias very=git
 alias such=git
 alias much=git
-
+alias so=git
