@@ -38,6 +38,10 @@ Plugin 'sjl/gundo.vim'
 " https://github.com/altercation/vim-colors-solarized
 Plugin 'altercation/vim-colors-solarized'
 
+" NERDCommenter - Easy code commenting
+" https://github.com/scrooloose/nerdcommenter
+Plugin 'scrooloose/nerdcommenter'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -64,6 +68,9 @@ set hidden
 " Turn off beeps
 set visualbell
 set noerrorbells
+
+" Stop that annoying window from popping up
+map q: :q
 
 " No shift anymore in command mode. Fewer keystrokes! :w bcomes ;w
 nnoremap ; :
@@ -112,6 +119,9 @@ set title
 
 " Show line, column numbers at the bottom
 set ruler
+
+" Show details on the current command on last line
+set showcmd
 
 
 """"" TAB BEHAVIOR
