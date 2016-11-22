@@ -221,6 +221,8 @@ au BufNewFile,BufRead *.dump set filetype=sql
 " Underline the current line
 set cursorline
 
+" Fix backspace?
+set backspace=indent,eol,start
 
 """"" FOLDING
 augroup vimrc
