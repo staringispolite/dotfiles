@@ -61,6 +61,7 @@ filetype plugin indent on    " required
 
 """"" PREREQS AND MAIN FUNCTIONALITY
 
+
 " Fix problem where arrow keys inserted new lines with A,B,D
 set term=builtin_ansi
 set timeout ttimeoutlen=100 timeoutlen=5000
@@ -208,6 +209,7 @@ set expandtab
 syntax enable
 set background=dark
 colorscheme solarized
+let g:solarized_termcolors=256
 filetype on
 
 " Expand the types that get CSS highlighting
