@@ -55,6 +55,10 @@ Plugin 'ianks/vim-tsx'
 " https://github.com/altercation/vim-colors-solarized
 Plugin 'altercation/vim-colors-solarized'
 
+" NERDCommenter - Easy code commenting
+" https://github.com/scrooloose/nerdcommenter
+Plugin 'scrooloose/nerdcommenter'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -73,6 +77,7 @@ filetype plugin indent on    " required
 
 """"" PREREQS AND MAIN FUNCTIONALITY
 
+
 " Fix problem where arrow keys inserted new lines with A,B,D
 set term=builtin_ansi
 set timeout ttimeoutlen=100 timeoutlen=5000
@@ -83,6 +88,9 @@ set hidden
 " Turn off beeps
 set visualbell
 set noerrorbells
+
+" Stop that annoying window from popping up
+map q: :q
 
 " No shift anymore in command mode. Fewer keystrokes! :w bcomes ;w
 nnoremap ; :
@@ -135,6 +143,9 @@ set title
 
 " Show line, column numbers at the bottom
 set ruler
+
+" Show details on the current command on last line
+set showcmd
 
 " get rid of characters in window separators
 set fillchars=""
@@ -214,6 +225,7 @@ set expandtab
 syntax enable
 set background=dark
 colorscheme solarized
+let g:solarized_termcolors=256
 filetype on
 
 " Expand the types that get CSS highlighting
@@ -226,6 +238,8 @@ au BufNewFile,BufRead *.dump set filetype=sql
 " Underline the current line
 set cursorline
 
+" Fix backspace?
+set backspace=indent,eol,start
 
 """"" FOLDING
 augroup vimrc
