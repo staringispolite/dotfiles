@@ -35,6 +35,22 @@ Plugin 'kien/ctrlp.vim'
 " https://github.com/sjl/gundo.vim
 Plugin 'sjl/gundo.vim'
 
+" Vastly improved Javascript indentation and syntax support in Vim
+" https://github.com/pangloss/vim-javascript
+Plugin 'pangloss/vim-javascript'
+
+" React JSX syntax highlighting and indenting for vim
+" https://github.com/mxw/vim-jsx
+Plugin 'mxw/vim-jsx'
+
+" Typescript syntax highlighting
+" https://github.com/leafgarland/typescript-vim
+Plugin 'leafgarland/typescript-vim'
+
+" Typescript TSX syntax highlighting that seems inspired by vim-jsx
+" https://github.com/ianks/vim-tsx
+Plugin 'ianks/vim-tsx'
+
 " Solarized color scheme
 " https://github.com/altercation/vim-colors-solarized
 Plugin 'altercation/vim-colors-solarized'
@@ -72,7 +88,7 @@ set noerrorbells
 nnoremap ; :
 
 " No shift anymore to use ag search. Fewer keystrokes!
-nnoremap :Ag :ag
+nnoremap :ag :Ag
 
 " Better split controls
 " https://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
@@ -206,7 +222,6 @@ au BufNewFile,BufRead *.sass set filetype=css
 
 " Expand types that get SQL highlighting
 au BufNewFile,BufRead *.dump set filetype=sql
-
 
 " Underline the current line
 set cursorline
